@@ -1,5 +1,4 @@
-node
-{
+
 
 
   properties([[$class: 'JiraProjectProperty'], buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')), pipelineTriggers([pollSCM('* * * * *')])])
@@ -11,13 +10,14 @@ node
  
  git branch: 'development', credentialsId: '03b8d2fd-388b-4944-bb34-1419ee66975d', url: 'https://github.com/MithunTechnologiesDevOps/maven-web-application.git'
  }
+
  
  stage('MavenBuildMBPL')
  {
   sh "${mavenHome}/bin/mvn clean package"
  }
- 
-/*
+  /*
+
  stage('ExecuteSonarQubeReport')
  {
  sh "${mavenHome}/bin/mvn sonar:sonar"
