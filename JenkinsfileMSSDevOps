@@ -12,7 +12,7 @@
  }
 
  
- stage('MavenBuildMBPL')
+ stage('MavenBuild')
  {
   sh "${mavenHome}/bin/mvn clean package"
  }
